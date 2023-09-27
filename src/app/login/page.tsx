@@ -18,18 +18,18 @@ const LoginPage = () => {
     } catch (error) {}
   };
   return (
-    <Row>
-      <Col sm={24} md={16} lg={16}>
+    <Row justify="center" align="middle" style={{ minHeight: "100vh" }}>
+      <Col sm={24} md={16} lg={12}>
         <Image width={500} src={loginImg} alt="login-image" />
       </Col>
       <Col sm={24} md={8} lg={8}>
         <div>
-          <h2>Login Your Account</h2>
+          <h1 style={{ margin: "15px 0px" }}>Login Your Account</h1>
           <Form submitHandler={onSubmit}>
             <div>
               <FormInputs name="id" type="text" size="large" label="User ID" />
             </div>
-            <div>
+            <div style={{ margin: "15px 0px" }}>
               <FormInputs
                 name="password"
                 type="password"
