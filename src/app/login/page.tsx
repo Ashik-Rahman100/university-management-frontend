@@ -4,9 +4,10 @@ import loginImg from "@/assets/Computer login-amico.png";
 import Form from "@/components/Forms/Form";
 import FormInputs from "@/components/Forms/FormInputs";
 import { useUserLoginMutation } from "@/redux/api/authApi";
-import { getUserInfo, storeUserInfo } from "@/redux/services/auth.service";
+import { storeUserInfo } from "@/redux/services/auth.service";
 import { Button, Col, Row } from "antd";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { SubmitHandler } from "react-hook-form";
 
 type FormValues = {
@@ -14,12 +15,16 @@ type FormValues = {
   password: string;
 };
 const LoginPage = () => {
-  console.log(getUserInfo());
+  // console.log(getUserInfo());
+  const router = useRouter();
 
   const [userLogin] = useUserLoginMutation();
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       const res = await userLogin({ ...data }).unwrap();
+      if (res?.data?.accessToken) {
+        router.push("/profile");
+      }
       storeUserInfo({ accessToken: res?.data?.accessToken });
       console.log(res);
     } catch (error) {}
