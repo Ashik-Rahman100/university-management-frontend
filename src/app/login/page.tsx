@@ -3,6 +3,8 @@
 import loginImg from "@/assets/Computer login-amico.png";
 import Form from "@/components/Forms/Form";
 import FormInputs from "@/components/Forms/FormInputs";
+import { useUserLoginMutation } from "@/redux/api/authApi";
+import { getUserInfo, storeUserInfo } from "@/redux/services/auth.service";
 import { Button, Col, Row } from "antd";
 import Image from "next/image";
 import { SubmitHandler } from "react-hook-form";
@@ -12,9 +14,14 @@ type FormValues = {
   password: string;
 };
 const LoginPage = () => {
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  console.log(getUserInfo());
+
+  const [userLogin] = useUserLoginMutation();
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      console.log(data);
+      const res = await userLogin({ ...data }).unwrap();
+      storeUserInfo({ accessToken: res?.data?.accessToken });
+      console.log(res);
     } catch (error) {}
   };
   return (
