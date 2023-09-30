@@ -4,3 +4,8 @@ export interface IMeta {
   size: number;
   message?: string;
 }
+
+export type ResponseSuccessType = {
+  data: any;
+  meta?: IMeta;
+};

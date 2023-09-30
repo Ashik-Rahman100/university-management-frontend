@@ -4,7 +4,7 @@ import loginImg from "@/assets/Computer login-amico.png";
 import Form from "@/components/Forms/Form";
 import FormInputs from "@/components/Forms/FormInputs";
 import { useUserLoginMutation } from "@/redux/api/authApi";
-import { storeUserInfo } from "@/redux/services/auth.service";
+import { storeUserInfo } from "@/services/auth.service";
 import { Button, Col, Row } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -22,12 +22,15 @@ const LoginPage = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       const res = await userLogin({ ...data }).unwrap();
+      console.log(res);
       if (res?.data?.accessToken) {
         router.push("/profile");
       }
+
       storeUserInfo({ accessToken: res?.data?.accessToken });
-      console.log(res);
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <Row justify="center" align="middle" style={{ minHeight: "100vh" }}>
