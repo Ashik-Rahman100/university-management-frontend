@@ -1,8 +1,7 @@
 export interface IMeta {
-  page: number;
   limit: number;
+  page: number;
   size: number;
-  message?: string;
 }
 
 export type ResponseSuccessType = {
@@ -10,12 +9,13 @@ export type ResponseSuccessType = {
   meta?: IMeta;
 };
 
-export type IGenericErrorMessage = {
-  path: string | number;
-  message: string;
-};
 export type IGenericErrorResponse = {
   statusCode: number;
   message: string;
   errorMessages: IGenericErrorMessage[];
+};
+
+export type IGenericErrorMessage = {
+  path: string | number;
+  message: string;
 };
