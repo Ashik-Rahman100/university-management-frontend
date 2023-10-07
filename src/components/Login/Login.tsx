@@ -25,7 +25,7 @@ const Login = () => {
       // console.log(res);
       if (res?.accessToken) {
         router.push("/profile");
-        message.success("User Login succfully");
+        message.success("User Login successfully");
       }
 
       storeUserInfo({ accessToken: res?.accessToken });

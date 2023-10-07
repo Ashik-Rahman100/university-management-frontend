@@ -1,24 +1,22 @@
 import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
-import { getUserInfo } from "@/services/auth.service";
 import { Button } from "antd";
 import Link from "next/link";
 
 const DepartmentPage = () => {
-  const { role } = getUserInfo() as any;
   return (
     <div>
       <UMBreadCrumb
         items={[
           {
-            label: `${role}`,
-            link: `/${role}`,
+            label: "super_admin",
+            link: "/super_admin",
           },
         ]}
       />
 
       <ActionBar title="Department List">
-        <Link href="/super_admin/manage-faculty/create">
+        <Link href="/super_admin/department/create">
           <Button type="primary">Create Student</Button>
         </Link>
       </ActionBar>

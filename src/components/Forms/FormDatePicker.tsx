@@ -14,25 +14,25 @@ const FormDatePicker = ({ name, label, onChange, size }: UMDatePickerProps) => {
 
   const handleOnChange: DatePickerProps["onChange"] = (date, dateString) => {
     onChange ? onChange(date, dateString) : null;
-    console.log(date, dateString);
+    setValue(name, dateString);
   };
   return (
-    <>
+    <div>
       {label ? label : null}
       <br />
       <Controller
-        control={control}
         name={name}
+        control={control}
         render={({ field }) => (
           <DatePicker
-            onChange={handleOnChange}
             value={dayjs(field.value) || ""}
             size={size}
+            onChange={handleOnChange}
             style={{ width: "100%" }}
           />
         )}
       />
-    </>
+    </div>
   );
 };
 
