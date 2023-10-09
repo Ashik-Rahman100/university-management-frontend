@@ -22,7 +22,7 @@ const Login = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       const res = await userLogin({ ...data }).unwrap();
-      // console.log(res);
+      console.log(res);
       if (res?.accessToken) {
         router.push("/profile");
         message.success("User Login successfully");
