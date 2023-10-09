@@ -29,6 +29,7 @@ export const departmentApi: any = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.department],
     }),
+    // Get single department
     department: build.query({
       query: (id) => ({
         url: `${DEPARTMENT_URL}/${id}`,
@@ -45,6 +46,14 @@ export const departmentApi: any = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.department],
     }),
+    // Delete department
+    deleteDepartment: build.mutation({
+      query: (id) => ({
+        url: `${DEPARTMENT_URL}/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: [tagTypes.department],
+    }),
   }),
 });
 
@@ -53,4 +62,5 @@ export const {
   useDepartmentsQuery,
   useDepartmentQuery,
   useUpdateDepartmentMutation,
+  useDeleteDepartmentMutation,
 } = departmentApi;
