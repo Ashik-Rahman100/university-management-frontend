@@ -1,5 +1,4 @@
 "use client";
-
 import {
   acDepartmentOptions,
   acSemesterOptions,
@@ -7,6 +6,7 @@ import {
   genderOptions,
 } from "@/constants/global";
 import { Col, Row } from "antd";
+
 import FormInputs from "../Forms/FormInputs";
 import FormSelectField from "../Forms/FormSelectField";
 import UploadImage from "../ui/UploadImage";
@@ -19,6 +19,7 @@ const StudentInfo = () => {
         borderRadius: "5px",
         padding: "15px",
         marginBottom: "10px",
+        marginTop: "10px",
       }}
     >
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
@@ -30,8 +31,8 @@ const StudentInfo = () => {
           }}
         >
           <FormInputs
-            name="student.name.firstName"
             type="text"
+            name="student.name.firstName"
             size="large"
             label="First Name"
           />
@@ -44,8 +45,8 @@ const StudentInfo = () => {
           }}
         >
           <FormInputs
-            name="student.name.middleName"
             type="text"
+            name="student.name.middleName"
             size="large"
             label="Middle Name"
           />
@@ -58,8 +59,8 @@ const StudentInfo = () => {
           }}
         >
           <FormInputs
-            name="student.name.lastName"
             type="text"
+            name="student.name.lastName"
             size="large"
             label="Last Name"
           />
@@ -72,80 +73,80 @@ const StudentInfo = () => {
           }}
         >
           <FormInputs
-            name="password"
             type="password"
+            name="password"
             size="large"
             label="Password"
           />
         </Col>
         <Col
           className="gutter-row"
-          span={6}
+          span={8}
           style={{
             marginBottom: "10px",
           }}
         >
           <FormSelectField
-            name="student.academicSemester"
             size="large"
-            label="Academic Semester"
-            options={acSemesterOptions}
-            placeholder="Select"
-          />
-        </Col>
-        <Col
-          className="gutter-row"
-          span={6}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
-          <FormSelectField
             name="student.academicDepartment"
-            size="large"
-            label="Academic Department"
             options={acDepartmentOptions}
+            label="Academic Department"
             placeholder="Select"
           />
         </Col>
         <Col
           className="gutter-row"
-          span={6}
+          span={8}
           style={{
             marginBottom: "10px",
           }}
         >
           <FormSelectField
+            size="large"
             name="student.academicFaculty"
-            size="large"
-            label="Academic Faculty"
             options={facultyOptions}
+            label="Academic Faculty"
             placeholder="Select"
           />
         </Col>
         <Col
           className="gutter-row"
-          span={6}
+          span={8}
           style={{
             marginBottom: "10px",
           }}
         >
           <FormSelectField
-            name="student.gender"
             size="large"
-            label="Gender"
-            options={genderOptions}
+            name="student.academicSemester"
+            options={acSemesterOptions}
+            label="Academic Semester"
             placeholder="Select"
           />
         </Col>
         <Col
           className="gutter-row"
-          span={6}
+          span={8}
           style={{
             marginBottom: "10px",
           }}
         >
-          <UploadImage />
+          <FormSelectField
+            size="large"
+            name="student.gender"
+            options={genderOptions}
+            label="Gender"
+            placeholder="Select"
+          />
+        </Col>
+        <Col
+          className="gutter-row"
+          span={8}
+          style={{
+            marginBottom: "10px",
+          }}
+        >
+          <UploadImage name="file" />
         </Col>
       </Row>
     </div>

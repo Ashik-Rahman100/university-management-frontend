@@ -47,7 +47,7 @@ const DepartmentPage = () => {
   // const { departments, meta } = data;
   const departments = data?.departments;
   const meta = data?.meta;
-  // console.log(data);
+  console.log(data);
   const handleDelete = async (id: string) => {
     message.loading("department Deleting ...");
     try {

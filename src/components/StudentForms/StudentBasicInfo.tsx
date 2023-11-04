@@ -13,94 +13,52 @@ const StudentBasicInfo = () => {
         borderRadius: "5px",
         padding: "15px",
         marginBottom: "10px",
+        marginTop: "10px",
       }}
     >
-      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        <Col
-          className="gutter-row"
-          span={8}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
+      <Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}>
+        <Col span={8} style={{ margin: "10px 0" }}>
           <FormInputs
-            name="student.email"
             type="email"
-            size="large"
-            label="Email"
-          />
-        </Col>
-        <Col
-          className="gutter-row"
-          span={8}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
-          <FormInputs
-            name="student.contactNo"
-            type="text"
-            size="large"
-            label="Contact Number"
-          />
-        </Col>
-        <Col
-          className="gutter-row"
-          span={8}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
-          <FormInputs
-            name="student.emergencyContactNo"
-            type="text"
-            size="large"
-            label="Emergency Contact Number"
-          />
-        </Col>
-        <Col
-          className="gutter-row"
-          span={8}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
-          <FormDatePicker
-            name="student.dateOfBirth"
-            label="Date Of Birth"
+            name="student.email"
+            label="Email address"
             size="large"
           />
         </Col>
 
-        <Col
-          className="gutter-row"
-          span={8}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
+        <Col span={8} style={{ margin: "10px 0" }}>
+          <FormInputs
+            name="student.contactNo"
+            label="Contact no."
+            size="large"
+          />
+        </Col>
+
+        <Col span={8} style={{ margin: "10px 0" }}>
+          <FormInputs
+            name="student.emergencyContactNo"
+            label="Emergency contact no."
+            size="large"
+          />
+        </Col>
+
+        <Col span={12} style={{ margin: "10px 0" }}>
+          <FormDatePicker
+            name="student.dateOfBirth"
+            label="Date of birth"
+            size="large"
+          />
+        </Col>
+
+        <Col span={12} style={{ margin: "10px 0" }}>
           <FormSelectField
             name="student.bloodGroup"
-            size="large"
-            label="Blood Group"
+            label="Blood group"
             options={bloodGroupOptions}
-            placeholder="Select"
-          />
-        </Col>
-        <Col
-          className="gutter-row"
-          span={8}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
-          <FormInputs
-            name="student.designation"
-            type="text"
             size="large"
-            label="Designation"
           />
         </Col>
+
         <Col span={12} style={{ margin: "10px 0" }}>
           <FormTextArea
             name="student.presentAddress"
